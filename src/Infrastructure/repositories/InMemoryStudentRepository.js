@@ -1,4 +1,8 @@
-const students = [];
+const fs = require('fs');
+const path = require('path');
+
+const dataPath = path.resolve(__dirname, "../data/studentsData.json");
+const students = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
 class InMemoryStudentRepository {
     async findAll() {

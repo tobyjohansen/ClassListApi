@@ -1,8 +1,12 @@
-const Sclasses = []
+const fs = require('fs');
+const path = require('path');
+
+const dataPath = path.resolve(__dirname, "../data/SclassData.json");
+const Sclasses = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
 class InMemoryClassRepository {
     async findAll() {
-        return Sclasses;
+        return Sclasses.map(({ id, name }) => ({ id, name }));
     }
 
     async findById(id) {

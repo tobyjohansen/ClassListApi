@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 // Import routes from index.js in routes folder
 const routes = require('./Presentation/routes');
@@ -6,6 +7,9 @@ const routes = require('./Presentation/routes');
 
 // Create Express app
 const app = express();
+
+// Allow cross-origin requests from anywhere
+app.use(cors());
 
 
 // Middleware. Convert all requests to JSON
